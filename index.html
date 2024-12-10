@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Just4You</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('love.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .page {
+      display: none;
+      text-align: center;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .envelope img {
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .envelope img:hover {
+      transform: scale(1.1);
+    }
+
+    .envelope p {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .message-container {
+      display: none;
+      text-align: center;
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 40px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 800px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .message h1 {
+      color: #ff69b4;
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+
+    .message p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .image-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      justify-items: center;
+      margin-top: 30px;
+    }
+
+    .image-container img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border: 4px solid #ff69b4;
+      border-radius: 10px;
+    }
+
+    .name-input-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .name-input-container input {
+      padding: 10px;
+      font-size: 18px;
+      border: 2px solid #ff69b4;
+      border-radius: 5px;
+      width: 250px;
+      text-align: center;
+    }
+
+    .name-input-container button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .name-input-container button:hover {
+      background-color: #ff4081;
+    }
+
+    .final-page {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 40px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 800px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .final-page img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border: 4px solid #ff69b4;
+      border-radius: 10px;
+    }
+
+    .final-page p {
+      font-size: 18px;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    .go-to-final-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .go-to-final-btn:hover {
+      background-color: #ff4081;
+    }
+  </style>
+</head>
+<body>
+  <!-- Halaman Pertama: Input Nama -->
+  <div class="page active" id="startPage">
+    <h1>Just4You</h1>
+    <p>Masukkan nama anda untuk mula:</p>
+
+    <div class="name-input-container">
+      <input type="text" id="userName" placeholder="Masukkan nama...">
+      <button onclick="startMessage()">Mulakan</button>
+    </div>
+  </div>
+
+  <!-- Halaman Sampul Surat -->
+  <div class="page" id="envelopePage">
+    <div class="envelope" onclick="openMessage()">
+      <img src="envelope.png" alt="Klik untuk membuka surat">
+      <p>Klik untuk membuka surat</p>
+    </div>
+  </div>
+
+  <!-- Mesej Sambutan -->
+  <div class="message-container" id="messageContainer">
+    <div class="message">
+      <h1>Happy Birthday <span id="userNameDisplay">Ikall Sayang</span>!</h1>
+      <p>
+        Happy Birthday to the most amazing person in my life! You are my sunshine on cloudy days, my comfort in chaos, and my favorite reason to smile. Every moment with you feels like a blessing, and I’m so grateful to have you by my side.
+      </p>
+      <p>
+        I truly appreciate everything about you, the way you care, the way you love, and the way you always make me feel so special. You are my greatest gift, and I treasure every memory we’ve created together.
+      </p>
+      <p>
+        On your special day, I want you to know how deeply loved you are, not just today, but every single day. I want to be there with you, through all the ups and downs, standing by your side in both your happiest and toughest moments.
+      </p>
+      <p>
+        You are my forever, my love. Let’s make this day as wonderful and magical as you are. I love you to the moon and back and even more.
+      </p>
+    </div>
+
+    <!-- Ruangan untuk gambar-gambar -->
+    <div class="image-container">
+      <img src="ikal1.jpg">
+      <img src="ikal2.jpg">
+      <img src="ikal3.jpg">
+      <img src="ikal4.jpg">
+      <img src="ikal5.jpg">
+      <img src="ikal6.jpg">
+    </div>
+
+    <!-- Butang untuk pergi ke halaman terakhir -->
+    <div>
+      <button class="go-to-final-btn" onclick="goToFinalPage()">Ke Halaman Terakhir</button>
+    </div>
+  </div>
+
+  <!-- Halaman Terakhir -->
+  <div class="page" id="finalPage">
+    <div class="final-page">
+      <img src="last.jpg" alt="Hadiah">
+      <p>Maaf sebab me mulakan relay kita dengan sakitkan hati ikall.Me sayangg mu sangat ii.Me taknakk ulang lagi.Me mintaa maaf sangat ii.Selamat hari jadii muu.Me nakk teman muu dari sekarang sampaii mu berjaya.Taknakk sedih ii tauu.Jangan jadi macam birthday me haritu tau hehehe.Me nak mu happyyy.Jangan risau me takk dendam dengan mu pon.Me takpernah dendam or benci mu..Me sayang muu sangat ii..Tataaa</p>
+    </div>
+  </div>
+
+  <script>
+    function startMessage() {
+      const userName = document.getElementById('userName').value.trim();
+
+      // Menukar nama dalam mesej sambutan
+      if (userName) {
+        document.getElementById('userNameDisplay').innerText = userName;
+      }
+
+      // Alih ke halaman sampul surat selepas memasukkan nama
+      document.getElementById('startPage').classList.remove('active');
+      document.getElementById('envelopePage').classList.add('active');
+    }
+
+    function openMessage() {
+      document.getElementById('envelopePage').style.display = 'none';
+      document.getElementById('messageContainer').style.display = 'block';
+    }
+
+    function goToFinalPage() {
+      // Alih ke halaman terakhir
+      document.getElementById('messageContainer').style.display = 'none';
+      document.getElementById('finalPage').classList.add('active');
+    }
+  </script>
+</body>
+</html>
